@@ -1,0 +1,8 @@
+{
+  "name": "T-REX Dental Clinic",
+  "description": "Multispeciality dental clinic website offering comprehensive dental care, services, before & after transformations, and contact info.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

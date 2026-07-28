@@ -1,0 +1,17 @@
+{
+  "name": "t-rexdentalclinic",
+  "version": "1.0.0",
+  "description": "T-REX Dental Clinic Website",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'No build step required'",
+    "lint": "echo 'No lint step required'"
+  },
+  "dependencies": {
+    "@google/genai": "^2.13.0",
+    "express": "^4.21.2"
+  }
+}

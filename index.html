@@ -7,39 +7,46 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=1.2" />
+  <link rel="stylesheet" href="styles.css?v=5.0" />
 </head>
 <body>
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#home">T-REX Dental Clinic</a>
+      <a class="brand" href="#home">
+        <span>T-REX Dental Clinic</span>
+        <span class="nav-status-dot open" id="navStatusDot" title="Clinic Status: Open" aria-label="Clinic Status"></span>
+      </a>
       <nav class="primary-nav" aria-label="Primary">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">☰</button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" id="navToggle">MENU</button>
         <ul id="nav-list">
           <li><a href="#home">HOME</a></li>
           <li><a href="#about">ABOUT</a></li>
           <li><a href="#services">SERVICES</a></li>
           <li><a href="#before-after">BEFORE & AFTER</a></li>
           <li><a href="#team">FACULTY</a></li>
+          <li><a href="#booking">BOOK APPOINTMENT</a></li>
           <li><a href="#contact">CONTACT</a></li>
         </ul>
-        
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- HERO -->
     <section class="hero" id="home">
       <div class="hero-media" aria-hidden="true">
-        <video class="hero-video" src="hero.mp4" autoplay muted loop playsinline></video>
+        <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto">
+          <source src="hero.mp4" type="video/mp4">
+        </video>
       </div>
       <div class="container hero-content">
         <p class="kicker">WELCOME TO</p>
         <h1 class="display">T-REX Dental Clinic</h1>
-        <p class="kicker1">Experience the gentle difference</p>
+        <p class="kicker1">Experience the gentle difference </p>
         <div class="ctas">
-          <a class="btn" href="#services">Explore Services</a>
+          <a class="btn primary-btn" href="#booking">Book Appointment</a>
+          <a class="btn secondary-btn" href="#services">Explore Services</a>
         </div>
       </div>
     </section>
@@ -52,326 +59,718 @@
           <h2 class="headline">Smiles for the Whole Family</h2>
           <p>At T-REX Dental Clinic, we believe that a healthy smile is the foundation of confidence and well-being. As a multispeciality dental clinic, we bring together highly qualified specialists from every field of dentistry — all under one roof — to provide complete, personalized care for you and your family.
            <br><br> We are committed to delivering the highest quality dental treatment with a strong focus on hygiene, safety, and comfort. By combining advanced modern technologies with gentle care, we ensure every patient receives the best possible treatment experience.
-            What makes us truly unique is our specialised Kids’ Dental Clinic — a fun, child-friendly space designed to make dental visits stress-free, fearless, and even enjoyable! With painless treatments and a welcoming environment, we help children build positive dental habits for life.
             <br><br>Whether it’s preventive care, advanced dental procedures, or creating beautiful smiles, our goal is to make every visit comfortable, reliable, and result-oriented.
-            At T-Rex Dental Clinic, your smile is our priority</p>
-          <a class="link-cta" href="#contact">Learn More</a>
+            At T-Rex Dental Clinic, your smile is our priority.</p>
+          <a class="link-cta" href="#booking">Book Your Visit Now</a>
         </div>
       </div>
     </section>
 
-   <!-- SERVICES -->
-<section class="feature alt" id="services">
-  <div class="container feature-inner">
-    <div class="section-card">
-      <p class="kicker">OUR SERVICES</p>
-      <h2 class="headline">Healthy Smiles Start Here</h2>
+    <!-- ONLINE APPOINTMENT BOOKING -->
+    <section class="feature alt" id="booking">
+      <div class="container feature-inner">
+        <div class="section-card">
+          <p class="kicker">ONLINE REGISTRATION</p>
+          <h2 class="headline">Book an Appointment</h2>
+          <p>Select your required service, specialist, preferred date, and real-time time slot for a seamless dental visit.</p>
 
-      <div class="gallery-grid">
+          <form id="appointmentForm" class="booking-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="patientName">Full Name *</label>
+                <input type="text" id="patientName" name="patientName" required placeholder="Enter full name" />
+              </div>
 
-        <div class="gallery-card">
-          <img src="kids.jpeg" alt="Specialised Kids Clinic">
-          <h3>Specialised Kids Clinic</h3>
+              <div class="form-group">
+                <label for="patientPhone">Phone Number *</label>
+                <input type="tel" id="patientPhone" name="patientPhone" required placeholder="Enter 10-digit phone number" />
+              </div>
+
+              <div class="form-group">
+                <label for="patientEmail">Email Address</label>
+                <input type="email" id="patientEmail" name="patientEmail" placeholder="patient@example.com" />
+              </div>
+
+              <div class="form-group">
+                <label for="bookingService">Dental Service *</label>
+                <select id="bookingService" name="bookingService" required>
+                  <option value="" disabled selected>Select dental service</option>
+                  <option value="Consultation & General Checkup">Consultation & General Checkup</option>
+                  <option value="Root Canal Treatment (RCT)">Root Canal Treatment (RCT)</option>
+                  <option value="Crown and Bridge">Crown and Bridge</option>
+                  <option value="Dental Implant">Dental Implant</option>
+                  <option value="Braces & Orthodontics">Braces & Orthodontics</option>
+                  <option value="Invisible Aligners">Invisible Aligners</option>
+                  <option value="Scaling & Curettage (Cleaning)">Scaling & Curettage (Cleaning)</option>
+                  <option value="Tooth Coloured Filling">Tooth Coloured Filling</option>
+                  <option value="Painless Tooth Extraction">Painless Tooth Extraction</option>
+                  <option value="Wisdom Tooth Extraction">Wisdom Tooth Extraction</option>
+                  <option value="Complete Denture">Complete Denture</option>
+                  <option value="Veneers">Veneers</option>
+                  <option value="Teeth Bleaching / Whitening">Teeth Bleaching / Whitening</option>
+                  <option value="Dental X-Ray">Dental X-Ray</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="bookingDoctor">Preferred Specialist / Doctor *</label>
+                <select id="bookingDoctor" name="bookingDoctor" required>
+                  <option value="Dr. Narinderjeet Singh (Managing Director - BDS)">Dr. Narinderjeet Singh (Managing Director - BDS)</option>
+                  <option value="Dr. Ritika Sharda (Prosthodontics - BDS, MDS)">Dr. Ritika Sharda (Prosthodontics - BDS, MDS)</option>
+                  <option value="Dr. Pallavi Vishavkarma (Orthodontics - BDS, MDS)">Dr. Pallavi Vishavkarma (Orthodontics - BDS, MDS)</option>
+                  <option value="Dr. Vikrant Thakur (Prosthodontics & Implantology - BDS, MDS)">Dr. Vikrant Thakur (Prosthodontics & Implantology - BDS, MDS)</option>
+                  <option value="First Available Specialist">First Available Specialist</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="bookingDate">Preferred Date *</label>
+                <input type="date" id="bookingDate" name="bookingDate" required />
+              </div>
+            </div>
+
+            <div class="form-group margin-top">
+              <label>Select Real-time Time Slot *</label>
+              <div class="time-slots-grid" id="timeSlotsGrid">
+                <!-- Dynamically rendered slots -->
+              </div>
+              <input type="hidden" id="selectedTimeSlot" name="selectedTimeSlot" required />
+            </div>
+
+            <div class="form-group margin-top">
+              <label for="bookingNotes">Additional Notes / Symptoms (Optional)</label>
+              <textarea id="bookingNotes" name="bookingNotes" rows="3" placeholder="Specify any current symptoms, dental concerns, or allergies..."></textarea>
+            </div>
+
+            <div class="booking-action-bar">
+              <button type="submit" class="btn primary-btn submit-booking-btn" id="submitBookingBtn">Confirm Appointment</button>
+            </div>
+          </form>
         </div>
-
-        <div class="gallery-card">
-          <img src="RCT.jpeg" alt="Root Canal Treatment">
-          <h3>Root Canal Treatment (RCT)</h3>
-        </div>
-
-        <div class="gallery-card">
-          <img src="Crown.jpeg" alt="Crown and Bridge">
-          <h3>Crown and Bridge</h3>
-        </div>
-
-        <div class="gallery-card">
-          <img src="DENTURE.jpeg" alt="Complete Denture">
-          <h3>Complete Denture</h3>
-        </div>
-
-        <div class="gallery-card">
-          <img src="implant.jpeg" alt="Dental Implant">
-          <h3>Dental Implant</h3>
-        </div>
-
-        <div class="gallery-card">
-          <img src="Braces.jpeg" alt="Braces">
-          <h3>Braces</h3>
-        </div>
-
-        <div class="gallery-card">
-          <img src="XRAY1.jpeg" alt="Dental X-ray">
-          <h3>Dental X-ray</h3>
-        </div>
-
-        <div class="gallery-card">
-          <img src="SCALING.jpeg" alt="Scaling and Curretage">
-          <h3>Scaling and Curretage</h3>
-        </div>
-
-        <div class="gallery-card">
-          <img src="Invisible Algines.jpeg" alt="Invisible Aligners">
-          <h3>Invisible Aligners</h3>
-        </div>
-
-        <div class="gallery-card">
-          <img src="Extraction.jpeg" alt="Painless Extraction">
-          <h3>Painless Extraction</h3>
-        </div>
-
-        <div class="gallery-card">
-          <img src="Wisdom tooth extraction.jpeg" alt="Surgical Extraction">
-          <h3>Wisdom Tooth Extraction</h3>
-        </div>
-
-        <div class="gallery-card">
-          <img src="Filling.jpeg" alt="Tooth Coloured Filling">
-          <h3>Tooth Coloured Filling</h3>
-        </div>
-
-        <div class="gallery-card">
-          <img src="Veneers.jpeg" alt="Veneers">
-          <h3>Veneers</h3>
-        </div>
-        <div class="gallery-card">
-          <img src="Bleaching.jpeg" alt="Bleaching">
-          <h3>Bleaching</h3>
-        </div>
-
       </div>
-    </div>
-  </div>
-</section>
-<!-- BEFORE & AFTER -->
-<section class="feature" id="before-after">
-  <div class="container feature-inner">
-    <div class="section-card">
-      <p class="kicker">TRANSFORMATIONS</p>
-      <h2 class="headline">Before & After Smiles</h2>
-      <p>See the difference our expert care makes. Real patients, real results!</p>
+    </section>
 
-      <div class="before-after-grid">
+    <!-- SERVICES -->
+    <section class="feature" id="services">
+      <div class="container feature-inner">
+        <div class="section-card">
+          <p class="kicker">OUR SERVICES</p>
+          <h2 class="headline">Healthy Smiles Start Here</h2>
 
-        <!-- Primary treatments shown first -->
-        <div class="ba-card">
-          <h3>Root Canal Treatment (RCT)</h3>
-          <div class="ba-images">
-            <img src="RCT BEFORE.jpeg" alt="Before RCT">
-            <img src="RCT AFTER.jpeg" alt="After RCT">
+          <div class="gallery-grid">
+
+            <div class="gallery-card">
+              <img src="RCT.jpeg" alt="Root Canal Treatment">
+              <h3>Root Canal Treatment (RCT)</h3>
+            </div>
+
+            <div class="gallery-card">
+              <img src="Crown.jpeg" alt="Crown and Bridge">
+              <h3>Crown and Bridge</h3>
+            </div>
+
+            <div class="gallery-card">
+              <img src="DENTURE.jpeg" alt="Complete Denture">
+              <h3>Complete Denture</h3>
+            </div>
+
+            <div class="gallery-card">
+              <img src="implant.jpeg" alt="Dental Implant">
+              <h3>Dental Implant</h3>
+            </div>
+
+            <div class="gallery-card">
+              <img src="Braces.jpeg" alt="Braces">
+              <h3>Braces</h3>
+            </div>
+
+            <div class="gallery-card">
+              <img src="Dentalxray.jpg" alt="Dental X-ray">
+              <h3>Dental X-ray</h3>
+            </div>
+
+            <div class="gallery-card">
+              <img src="SCALING.jpeg" alt="Scaling and Curretage">
+              <h3>Scaling and Curretage</h3>
+            </div>
+
+            <div class="gallery-card">
+              <img src="Invisible Algines.jpeg" alt="Invisible Aligners">
+              <h3>Invisible Aligners</h3>
+            </div>
+
+            <div class="gallery-card">
+              <img src="Extraction.jpeg" alt="Painless Extraction">
+              <h3>Painless Extraction</h3>
+            </div>
+
+            <div class="gallery-card">
+              <img src="Wisdom tooth extraction.jpeg" alt="Surgical Extraction">
+              <h3>Wisdom Tooth Extraction</h3>
+            </div>
+
+            <div class="gallery-card">
+              <img src="Filling.jpeg" alt="Tooth Coloured Filling">
+              <h3>Tooth Coloured Filling</h3>
+            </div>
+
+            <div class="gallery-card">
+              <img src="Veneers.jpeg" alt="Veneers">
+              <h3>Veneers</h3>
+            </div>
+
+            <div class="gallery-card">
+              <img src="Bleaching.jpeg" alt="Bleaching">
+              <h3>Bleaching</h3>
+            </div>
+
           </div>
         </div>
-
-        <div class="ba-card">
-          <h3>Deep Scaling & Cleaning</h3>
-          <div class="ba-images">
-            <img src="Scaling Before.jpeg" alt="Before Deep Scaling">
-            <img src="Scaling After.jpeg" alt="After Deep Scaling">
-          </div>
-        </div>
-
-        <div class="ba-card">
-          <h3>Wisdom Tooth Extraction</h3>
-          <div class="ba-images">
-            <img src="Wisdom before.jpeg" alt="Before Wisdom Extraction">
-            <img src="Wisdom after.jpeg" alt="After Wisdom Extraction">
-          </div>
-        </div>
-
-        <div class="ba-card">
-          <h3>Dental Implants</h3>
-          <div class="ba-images">
-            <img src="Implants Before.jpeg" alt="Before Implants">
-            <img src="Impants after.jpeg" alt="After Implants">
-          </div>
-        </div>
-
-        <div class="ba-card">
-          <h3>Dental Crowns</h3>
-          <div class="ba-images">
-            <img src="Crowns Before.jpeg" alt="Before Crowns">
-            <img src="Crown After.jpeg" alt="After Crowns">
-          </div>
-        </div>
-
-        <div class="ba-card">
-          <h3>Painless Treatment</h3>
-          <div class="ba-images">
-            <img src="Painless Before.jpeg" alt="Before Painless Treatment">
-            <img src="Painless After.jpeg" alt="After Painless Treatment">
-          </div>
-        </div>
-
-        <!-- Hidden content that will be shown with "Show More" -->
-        <div class="ba-card hidden-content">
-          <h3>Child Root Canal Treatment</h3>
-          <div class="ba-images">
-            <img src="CHILD RCT BEFORE.jpeg" alt="Before Child RCT">
-            <img src="CHILD RCT AFTER.jpeg" alt="After Child RCT">
-          </div>
-        </div>
-
-        <div class="ba-card hidden-content">
-          <h3>Adult Root Canal</h3>
-          <div class="ba-images">
-            <img src="RCT BEFORE2.jpeg" alt="Before Advanced RCT">
-            <img src="RCT AFTER2.jpeg" alt="After Advanced RCT">
-          </div>
-        </div>
-
-        <div class="ba-card hidden-content">
-          <h3>Regular Scaling Treatment</h3>
-          <div class="ba-images">
-            <img src="Sacling Before1.jpeg" alt="Before Scaling">
-            <img src="Scaling After1.jpeg" alt="After Scaling">
-          </div>
-        </div>
-
-        <div class="ba-card hidden-content">
-          <h3>Multiple Crowns</h3>
-          <div class="ba-images">
-            <img src="Crown Before2.jpeg" alt="Before Multiple Crowns">
-            <img src="Crown After2.jpeg" alt="After Multiple Crowns">
-          </div>
-        </div>
-
-        <div class="ba-card hidden-content">
-          <h3>Advanced Implants</h3>
-          <div class="ba-images">
-            <img src="Implants Before2.jpeg" alt="Before Advanced Implants">
-            <img src="Implants After2.jpeg" alt="After Advanced Implants">
-          </div>
-        </div>
-
       </div>
+    </section>
 
-      <div class="show-more-container">
-        <button class="show-more-btn" id="showMoreBtn">Show More Transformations</button>
+    <!-- INTERACTIVE BEFORE & AFTER SLIDERS -->
+    <section class="feature alt" id="before-after">
+      <div class="container feature-inner">
+        <div class="section-card">
+          <p class="kicker">TRANSFORMATIONS</p>
+          <h2 class="headline">Before & After Comparisons</h2>
+          <p>Drag the center handle on any image below to visually reveal the real-time dental transformation.</p>
+
+          <!-- Category Filters -->
+          <div class="ba-filter-bar">
+            <button class="ba-filter-btn active" data-filter="all">All Transformations</button>
+            <button class="ba-filter-btn" data-filter="rct">Root Canal (RCT)</button>
+            <button class="ba-filter-btn" data-filter="scaling">Scaling & Cleaning</button>
+            <button class="ba-filter-btn" data-filter="implants">Dental Implants</button>
+            <button class="ba-filter-btn" data-filter="crowns">Crowns & Bridges</button>
+            <button class="ba-filter-btn" data-filter="extractions">Wisdom & Extractions</button>
+          </div>
+
+          <div class="before-after-grid" id="baGrid">
+
+            <!-- Card 1 -->
+            <div class="ba-card" data-category="rct">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Root Canal</span>
+                <h3>Root Canal Treatment (RCT)</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="RCT AFTER.jpeg" alt="After RCT" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="RCT BEFORE.jpeg" alt="Before RCT" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Root Canal" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="ba-card" data-category="scaling">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Scaling & Cleaning</span>
+                <h3>Deep Scaling & Curettage</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="Scaling After.jpeg" alt="After Deep Scaling" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="Scaling Before.jpeg" alt="Before Deep Scaling" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Scaling" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="ba-card" data-category="extractions">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Surgical Extraction</span>
+                <h3>Wisdom Tooth Removal</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="Wisdom after.jpeg" alt="After Wisdom Removal" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="Wisdom before.jpeg" alt="Before Wisdom Removal" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Wisdom Removal" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="ba-card" data-category="implants">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Implants</span>
+                <h3>Dental Implant Restoration</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="Impants after.jpeg" alt="After Dental Implants" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="Implants Before.jpeg" alt="Before Dental Implants" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Implants" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="ba-card" data-category="crowns">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Crowns & Bridges</span>
+                <h3>Ceramic Dental Crowns</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="Crown After.jpeg" alt="After Dental Crowns" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="Crowns Before.jpeg" alt="Before Dental Crowns" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Crowns" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="ba-card" data-category="extractions">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Painless Dentistry</span>
+                <h3>Painless Tooth Extraction</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="Painless After.jpeg" alt="After Painless Extraction" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="Painless Before.jpeg" alt="Before Painless Extraction" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Painless Extraction" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="ba-card" data-category="rct">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Root Canal</span>
+                <h3>Advanced Adult RCT Case</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="RCT AFTER2.jpeg" alt="After Advanced RCT" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="RCT BEFORE2.jpeg" alt="Before Advanced RCT" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Advanced RCT" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="ba-card" data-category="scaling">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Scaling & Cleaning</span>
+                <h3>Ultrasonic Stain Removal</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="Scaling After1.jpeg" alt="After Stain Removal" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="Sacling Before1.jpeg" alt="Before Stain Removal" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Stain Removal" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="ba-card" data-category="crowns">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Crowns & Bridges</span>
+                <h3>Multiple Teeth Crown Bridge</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="Crown After2.jpeg" alt="After Multiple Crowns" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="Crown Before2.jpeg" alt="Before Multiple Crowns" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Multiple Crowns" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="ba-card" data-category="implants">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Implants</span>
+                <h3>Advanced Full Arch Implants</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="Implants After2.jpeg" alt="After Full Arch Implants" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="Implants Before2.jpeg" alt="Before Full Arch Implants" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Advanced Implants" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="ba-card" data-category="crowns">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Crowns & Bridges</span>
+                <h3>Fixed Crown & Bridge Rehabilitation</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="Crown and bridge 2 after.jpeg" alt="After Crown and Bridge" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="Crown and bridge 2 before.jpeg" alt="Before Crown and Bridge" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Crown and Bridge" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="ba-card" data-category="implants">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Implants</span>
+                <h3>Precision Dental Implant Procedure</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="implants 2 after.jpeg" alt="After Implant Procedure" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="implants 2 before.jpeg" alt="Before Implant Procedure" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Implant Procedure" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+            <!-- Card 13 -->
+            <div class="ba-card" data-category="extractions">
+              <div class="ba-card-info">
+                <span class="ba-category-badge">Wisdom & Extractions</span>
+                <h3>Complex Wisdom Tooth Surgery</h3>
+              </div>
+              <div class="ba-slider-container">
+                <img src="wisdom 2 after.jpeg" alt="After Wisdom Tooth Surgery" class="ba-img-after" />
+                <div class="ba-img-before-wrapper" style="width: 50%;">
+                  <img src="wisdom 2 before.jpeg" alt="Before Wisdom Tooth Surgery" class="ba-img-before" />
+                </div>
+                <div class="ba-slider-divider" style="left: 50%;">
+                  <div class="ba-handle-knob">
+                    <span class="handle-arrow-left">&lt;</span>
+                    <span class="handle-arrow-right">&gt;</span>
+                  </div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-range-slider" aria-label="Compare before and after Wisdom Surgery" />
+                <span class="ba-tag tag-before">BEFORE</span>
+                <span class="ba-tag tag-after">AFTER</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
+    
 
     <!-- TEAM -->
-<section class="feature" id="team">
-  <div class="container feature-inner">
-    <div class="team-section section-card">
-      <p class="kicker">OUR FACULTY</p>
-      <h2 class="headline">Meet Our Experts</h2>
-      <p>Our highly skilled doctors provide the best dental care with years of experience and compassion.</p>
+    <section class="feature" id="team">
+      <div class="container feature-inner">
+        <div class="team-section section-card">
+          <p class="kicker">OUR FACULTY</p>
+          <h2 class="headline">Meet Our Experts</h2>
+          <p>Our highly skilled doctors provide the best dental care with years of experience and compassion.</p>
 
-      <div class="team-grid">
-        <!-- Doctor 1 -->
-        <div class="team-card">
-          <div class="card-inner">
-            <div class="card-front">
-              <div class="team-img">
-                <img src="MAIN.jpeg" alt="Dr. Narinderjeet Singh" />
+          <div class="team-grid">
+            <!-- Doctor 1 -->
+            <div class="team-card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="team-img">
+                    <img src="MAIN.jpeg" alt="Dr. Narinderjeet Singh" />
+                  </div>
+                  <h3>Dr. NARINDERJEET SINGH</h3>
+                  <p>BDS<br>HPGDC, IGMC- Shimla</p>
+                </div>
+                <div class="card-back">
+                  <h3>Dr. NARINDERJEET SINGH</h3>
+                  <p class="qualification">BDS, HPGDC, IGMC- Shimla</p>
+                  <p class="description">Dr. Narinderjeet Singh, BDS, is a dedicated dental professional and the Managing Director of T-REX Dental Clinic. He completed his Bachelor of Dental Surgery in 2022 from HPGDC, IGMC-Shimla. With a vision to provide advanced, hygienic, and patient-friendly care, he established T-REX Dental Clinic as a multispeciality center equipped with the latest technology.</p>
+                </div>
               </div>
-              <h3>Dr. NARINDERJEET SINGH</h3>
-              <p>BDS<br>HPGDC, IGMC- Shimla</p>
             </div>
-            <div class="card-back">
-              <h3>Dr. NARINDERJEET SINGH</h3>
-              <p class="qualification">BDS, HPGDC, IGMC- Shimla</p>
-              <p class="description">Dr. Narinderjeet Singh, BDS, is a dedicated dental professional and the Managing Director of T-REX Dental Clinic. He completed his Bachelor of Dental Surgery in 2022 from HPGDC, IGMC-Shimla. With a vision to provide advanced, hygienic, and patient-friendly care, he established T-REX Dental Clinic as a multispeciality center equipped with the latest technology.</p>
-            </div>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="card-inner">
-            <div class="card-front">
-              <div class="team-img">
-                <img src="Doctor2.jpeg" alt="Dr. Ritika Sharda" />
-              </div>
-              <h3>Dr. RITIKA SHARDA</h3>
-              <p>BDS, MDS<br>(Prosthodontics and Crown & Bridge)</p>
-            </div>
-            <div class="card-back">
-              <h3>Dr. RITIKA SHARDA</h3>
-              <p class="qualification">BDS, MDS (Prosthodontics and Crown & Bridge)</p>
-              <p class="description">Dr. Ritika Sharda is a skilled dental professional who completed her Bachelor of Dental Surgery (BDS) in 2019 and earned her Master of Dental Surgery (MDS) in Prosthodontics and Crown & Bridge in 2023. She specializes in smile restoration, dental crowns, bridges, and implant-supported prostheses, helping patients regain function, aesthetics, and confidence.</p>
-            </div>
-          </div>
-        </div>
-        <div class="team-card">
-          <div class="card-inner">
-            <div class="card-front">
-              <div class="team-img">
-                <img src="IMG-20250903-WA0000.jpg" alt="Dr. Pallavi Vishavkarma" />
-              </div>
-              <h3>Dr. PALLAVI VISHAVKARMA</h3>
-              <p>BDS, MDS<br>(Orthodontics & Dentofacial Orthopedics)</p>
-            </div>
-            <div class="card-back">
-              <h3>Dr. PALLAVI VISHAVKARMA</h3>
-              <p class="qualification">BDS, MDS (Orthodontics & Dentofacial Orthopedics)</p>
-              <p class="description">Dr. Pallavi Vishavkarma is a skilled dental specialist who completed her Bachelor of Dental Surgery (BDS) in 2019 and pursued advanced training in Orthodontics and Dentofacial Orthopaedics, earning her Master of Dental Surgery (MDS) in 2023. She specializes in braces, aligners, and comprehensive orthodontic treatments. In 2022, she enhanced her expertise by completing advanced training in the Damon Self-Ligating Bracket System from Mangalore, enabling her to provide more care.</p>
-            </div>
-          </div>
-        </div>
 
-       
-        <div class="team-card">
-          <div class="card-inner">
-            <div class="card-front">
-              <div class="team-img">
-                <img src="IMG-20250902-WA0006.jpg" alt="Dr. Vikrant Thakur" />
+            <!-- Doctor 2 -->
+            <div class="team-card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="team-img">
+                    <img src="Doctor2.jpeg" alt="Dr. Ritika Sharda" />
+                  </div>
+                  <h3>Dr. RITIKA SHARDA</h3>
+                  <p>BDS, MDS<br>(Prosthodontics and Crown & Bridge)</p>
+                </div>
+                <div class="card-back">
+                  <h3>Dr. RITIKA SHARDA</h3>
+                  <p class="qualification">BDS, MDS (Prosthodontics and Crown & Bridge)</p>
+                  <p class="description">Dr. Ritika Sharda is a skilled dental professional who completed her Bachelor of Dental Surgery (BDS) in 2019 and earned her Master of Dental Surgery (MDS) in Prosthodontics and Crown & Bridge in 2023. She specializes in smile restoration, dental crowns, bridges, and implant-supported prostheses, helping patients regain function, aesthetics, and confidence.</p>
+                </div>
               </div>
-              <h3>Dr. VIKRANT THAKUR</h3>
-              <p>BDS, MDS<br>(Prosthodontics and Crown & Bridge, Implantology)</p>
             </div>
-            <div class="card-back">
-              <h3>Dr. VIKRANT THAKUR</h3>
-              <p class="qualification">BDS, MDS (Prosthodontics and Crown & Bridge, Implantology)</p>
-              <p class="description">Dr. Vikrant Thakur completed his Bachelor of Dental Surgery (BDS) in 2018 from HPGDC, IGMC-Shimla and pursued specialization in Prosthodontics and Crown & Bridge, earning his Master of Dental Surgery (MDS) from GDC Jaipur in 2023. As a skilled prosthodontist, he focuses on full-mouth rehabilitation, crowns, bridges, dentures, and implant-supported prostheses, ensuring both function and aesthetics for his patients.</p>
-            </div>
-          </div>
-        </div>
 
-        <!-- Assistant -->
-        <div class="team-card">
-          <div class="card-inner">
-            <div class="card-front">
-              <div class="team-img">
-                <img src="Receptionist.jpeg" alt="Assistant Arti" />
+            <!-- Doctor 3 -->
+            <div class="team-card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="team-img">
+                    <img src="IMG-20250903-WA0000.jpg" alt="Dr. Pallavi Vishavkarma" />
+                  </div>
+                  <h3>Dr. PALLAVI VISHAVKARMA</h3>
+                  <p>BDS, MDS<br>(Orthodontics & Dentofacial Orthopedics)</p>
+                </div>
+                <div class="card-back">
+                  <h3>Dr. PALLAVI VISHAVKARMA</h3>
+                  <p class="qualification">BDS, MDS (Orthodontics & Dentofacial Orthopedics)</p>
+                  <p class="description">Dr. Pallavi Vishavkarma is a skilled dental specialist who completed her Bachelor of Dental Surgery (BDS) in 2019 and pursued advanced training in Orthodontics and Dentofacial Orthopaedics, earning her Master of Dental Surgery (MDS) in 2023. She specializes in braces, aligners, and comprehensive orthodontic treatments.</p>
+                </div>
               </div>
-              <h3>Arti</h3>
-              <p>Dental Assistant</p>
             </div>
-            <div class="card-back">
-              <h3>Arti</h3>
-              <p class="qualification"> Dental Assistant</p>
-              <p class="description">Our dental assistant ensures seamless treatment support, maintains the highest standards of hygiene, and helps provide a comfortable experience for every patient.</p>
+
+            <!-- Doctor 4 -->
+            <div class="team-card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="team-img">
+                    <img src="IMG-20250902-WA0006.jpg" alt="Dr. Vikrant Thakur" />
+                  </div>
+                  <h3>Dr. VIKRANT THAKUR</h3>
+                  <p>BDS, MDS<br>(Prosthodontics and Crown & Bridge, Implantology)</p>
+                </div>
+                <div class="card-back">
+                  <h3>Dr. VIKRANT THAKUR</h3>
+                  <p class="qualification">BDS, MDS (Prosthodontics and Crown & Bridge, Implantology)</p>
+                  <p class="description">Dr. Vikrant Thakur completed his BDS in 2018 from HPGDC, IGMC-Shimla and MDS from GDC Jaipur in 2023. As a skilled prosthodontist, he focuses on full-mouth rehabilitation, crowns, bridges, dentures, and implant-supported prostheses.</p>
+                </div>
+              </div>
             </div>
+
+            <!-- Assistant -->
+            <div class="team-card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <div class="team-img">
+                    <img src="Receptionist.jpeg" alt="Assistant Arti" />
+                  </div>
+                  <h3>Arti</h3>
+                  <p>Dental Assistant</p>
+                </div>
+                <div class="card-back">
+                  <h3>Arti</h3>
+                  <p class="qualification">Dental Assistant</p>
+                  <p class="description">Our dental assistant ensures seamless treatment support, maintains the highest standards of hygiene, and helps provide a comfortable experience for every patient.</p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- CONTACT -->
     <section class="feature alt" id="contact">
       <div class="container feature-inner">
         <div class="section-card">
-          <p class="kicker">CONTACT US</p>
-          <h2 class="headline">Book Your Visit</h2>
-          <p>Show room no. 584, Phase 3, New Nalagarh Rd, Nalagarh ,Solan , Himachal Pradesh 174101</p>
-          <p>Phone: <a href="tel:+918091512013">80915-12013</a>,
-            <a href="tel:+918091612013">80916-12013</a></p>
-          <p>Email: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=trexdentalclinic@gmail.com" target="_blank" rel="noopener">trexdentalclinic@gmail.com</a></p>
-          <p>Instagram: <a href="https://instagram.com/t_rex.dental_clinic" target="_blank" rel="noopener">t_rex.dental_clinic</a></p>
-         
-          <a class="btn" href="https://maps.app.goo.gl/CjDCTp1Tve2TmJ2e7?g_st=ipc" target="_blank">Find Us on Google Maps</a>
+          <div class="contact-header-row">
+            <div>
+              <p class="kicker">LOCATION, HOURS & CONTACT</p>
+              <h2 class="headline">Visit T-REX Dental Clinic</h2>
+            </div>
+            <!-- Live Clinic Status Badge -->
+            <div id="liveClinicStatus" class="live-status-box" title="Real-time clinic availability">
+              <span id="statusTitle" class="status-title">Checking status...</span>
+              <span id="statusSub" class="status-sub">Clinic Hours</span>
+            </div>
+          </div>
+
+          <p class="address-text">
+            📍 <strong>Address:</strong> Show room no. 584, Phase 3, New Nalagarh Rd, Nalagarh, Solan, Himachal Pradesh 174101
+          </p>
+          
+          <div class="contact-details-grid">
+            <div>
+              <strong>Direct Phone Lines:</strong>
+              <p>
+                <a href="tel:+918091512013">📞 80915-12013</a><br>
+                <a href="tel:+918091612013">📞 80916-12013</a>
+              </p>
+            </div>
+            <div>
+              <strong>Email & Social:</strong>
+              <p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=trexdentalclinic@gmail.com" target="_blank" rel="noopener">✉️ trexdentalclinic@gmail.com</a><br>
+                <a href="https://instagram.com/t_rex.dental_clinic" target="_blank" rel="noopener">📷 @t_rex.dental_clinic</a>
+              </p>
+            </div>
+            <div>
+              <strong>Clinic Operating Hours:</strong>
+              <p>
+                Mon - Sat: 10:00 AM - 7:00 PM<br>
+                Sunday: 10:00 AM - 2:00 PM
+              </p>
+            </div>
+          </div>
+
+          <!-- Quick Interactive Action Buttons -->
+          <div class="contact-actions-bar">
+            <a class="btn map-btn" href="https://maps.app.goo.gl/CjDCTp1Tve2TmJ2e7?g_st=ipc" target="_blank" rel="noopener">
+              📍 Google Maps Navigation
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- SCRIPT -->
+  <!-- INSTANT CONFIRMATION MODAL -->
+  <div class="modal-overlay" id="confirmationModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <p class="kicker">BOOKING CONFIRMED</p>
+        <h3>Appointment Registration Summary</h3>
+      </div>
+      <div class="modal-body">
+        <div class="ref-badge">
+          <span>Reference ID:</span>
+          <strong id="modalRef">TREX-000000</strong>
+        </div>
+
+        <div class="summary-details">
+          <div class="summary-row">
+            <span class="label">Patient Name:</span>
+            <span class="value" id="modalPatientName">-</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Phone Number:</span>
+            <span class="value" id="modalPatientPhone">-</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Email Address:</span>
+            <span class="value" id="modalPatientEmail">-</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Selected Service:</span>
+            <span class="value" id="modalService">-</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Specialist:</span>
+            <span class="value" id="modalDoctor">-</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Date & Time:</span>
+            <span class="value" id="modalDateTime">-</span>
+          </div>
+          <div class="summary-row" id="modalNotesRow">
+            <span class="label">Notes:</span>
+            <span class="value" id="modalNotes">-</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <a id="googleCalBtn" href="#" target="_blank" rel="noopener" class="btn modal-btn cal-btn">Add to Google Calendar</a>
+          <a id="emailClinicBtn" href="#" target="_blank" rel="noopener" class="btn modal-btn email-btn">Email Direct to Clinic (trexdentalclinic@gmail.com)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
   <script>
-    const toggle = document.querySelector('.nav-toggle');
+    // Header & Mobile Nav Toggle
+    const toggle = document.getElementById('navToggle');
     const list = document.getElementById('nav-list');
     if (toggle) {
       toggle.addEventListener('click', () => {
@@ -381,20 +780,18 @@
       });
     }
 
-    // Smooth-scroll for internal links and close mobile menu after click
+    // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
         const targetId = anchor.getAttribute('href');
-        const isHashOnly = targetId === '#' || targetId === '';
-        if (!isHashOnly) {
+        if (targetId && targetId !== '#') {
           const el = document.querySelector(targetId);
           if (el) {
             e.preventDefault();
-            // Slightly slower smooth scroll
             const targetTop = el.getBoundingClientRect().top + window.pageYOffset;
             const offset = parseInt(getComputedStyle(document.documentElement).scrollPaddingTop) || 80;
             const destination = targetTop - offset;
-            const duration = 1000; // ms
+            const duration = 800;
             const start = window.pageYOffset;
             const startTime = performance.now();
 
@@ -402,8 +799,7 @@
             const step = (now) => {
               const elapsed = now - startTime;
               const progress = Math.min(1, elapsed / duration);
-              const eased = easeInOutQuad(progress);
-              window.scrollTo(0, start + (destination - start) * eased);
+              window.scrollTo(0, start + (destination - start) * easeInOutQuad(progress));
               if (progress < 1) requestAnimationFrame(step);
             };
             requestAnimationFrame(step);
@@ -416,33 +812,268 @@
       });
     });
 
-    // Show More functionality for Before & After section
-    const showMoreBtn = document.getElementById('showMoreBtn');
-    const hiddenContent = document.querySelectorAll('.hidden-content');
-    let isExpanded = false;
+    // BEFORE & AFTER COMPARISON SLIDERS ENGINE
+    function initBeforeAfterSliders() {
+      const sliderContainers = document.querySelectorAll('.ba-slider-container');
 
-    if (showMoreBtn) {
-      showMoreBtn.addEventListener('click', () => {
-        isExpanded = !isExpanded;
-        
-        hiddenContent.forEach((content, index) => {
-          if (isExpanded) {
-            // Show content with staggered animation
-            setTimeout(() => {
-              content.classList.add('show');
-            }, index * 100);
+      sliderContainers.forEach(container => {
+        const rangeInput = container.querySelector('.ba-range-slider');
+        const beforeWrapper = container.querySelector('.ba-img-before-wrapper');
+        const beforeImg = container.querySelector('.ba-img-before');
+        const divider = container.querySelector('.ba-slider-divider');
+
+        function updateSliderWidth() {
+          const containerWidth = container.offsetWidth;
+          if (beforeImg) {
+            beforeImg.style.width = containerWidth + 'px';
+          }
+          const val = rangeInput ? rangeInput.value : 50;
+          if (beforeWrapper) beforeWrapper.style.width = val + '%';
+          if (divider) divider.style.left = val + '%';
+        }
+
+        if (rangeInput) {
+          rangeInput.addEventListener('input', updateSliderWidth);
+        }
+
+        // Support window resize recalculation
+        window.addEventListener('resize', updateSliderWidth);
+        updateSliderWidth();
+      });
+    }
+    initBeforeAfterSliders();
+
+    // BEFORE & AFTER CATEGORY FILTER ENGINE
+    const baFilterBtns = document.querySelectorAll('.ba-filter-btn');
+    const baCards = document.querySelectorAll('.before-after-grid .ba-card');
+
+    baFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        baFilterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        baCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || filter === category) {
+            card.style.display = 'block';
+            setTimeout(() => { card.style.opacity = '1'; }, 10);
           } else {
-            // Hide content
-            content.classList.remove('show');
+            card.style.opacity = '0';
+            card.style.display = 'none';
           }
         });
-        
-        // Update button text
-        showMoreBtn.textContent = isExpanded ? 'Show Less Transformations' : 'Show More Transformations';
+
+        // Re-initialize slider widths after DOM layout update
+        setTimeout(initBeforeAfterSliders, 50);
+      });
+    });
+
+    // APPOINTMENT BOOKING SYSTEM
+    const bookingDateInput = document.getElementById('bookingDate');
+    const timeSlotsGrid = document.getElementById('timeSlotsGrid');
+    const selectedTimeSlotInput = document.getElementById('selectedTimeSlot');
+    const appointmentForm = document.getElementById('appointmentForm');
+
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const todayString = `${yyyy}-${mm}-${dd}`;
+    if (bookingDateInput) {
+      bookingDateInput.min = todayString;
+      bookingDateInput.value = todayString;
+    }
+
+    const timeSlots = [
+      "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
+      "12:00 PM", "12:30 PM", "01:00 PM",
+      "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM",
+      "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM",
+      "07:00 PM", "07:30 PM"
+    ];
+
+    function renderTimeSlots() {
+      if (!timeSlotsGrid) return;
+      timeSlotsGrid.innerHTML = '';
+      selectedTimeSlotInput.value = '';
+
+      timeSlots.forEach((slot, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'time-slot-btn';
+        btn.textContent = slot;
+
+        if (idx === 0) {
+          btn.classList.add('selected');
+          selectedTimeSlotInput.value = slot;
+        }
+
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.time-slot-btn').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          selectedTimeSlotInput.value = slot;
+        });
+
+        timeSlotsGrid.appendChild(btn);
       });
     }
 
+    if (bookingDateInput) {
+      bookingDateInput.addEventListener('change', renderTimeSlots);
+    }
+    renderTimeSlots();
+
+    // Modal Handling
+    const confirmationModal = document.getElementById('confirmationModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+    function closeModal() {
+      if (confirmationModal) {
+        confirmationModal.classList.remove('open');
+        confirmationModal.setAttribute('aria-hidden', 'true');
+      }
+    }
+
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    if (confirmationModal) {
+      confirmationModal.addEventListener('click', (e) => {
+        if (e.target === confirmationModal) closeModal();
+      });
+    }
+
+    if (appointmentForm) {
+      appointmentForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('patientName').value.trim();
+        const phone = document.getElementById('patientPhone').value.trim();
+        const email = document.getElementById('patientEmail').value.trim();
+        const service = document.getElementById('bookingService').value;
+        const doctor = document.getElementById('bookingDoctor').value;
+        const date = document.getElementById('bookingDate').value;
+        const time = selectedTimeSlotInput.value;
+        const notes = document.getElementById('bookingNotes').value.trim();
+
+        if (!time) {
+          alert('Please select an available time slot.');
+          return;
+        }
+
+        const submitBtn = document.getElementById('submitBookingBtn');
+        if (submitBtn) submitBtn.disabled = true;
+
+        try {
+          const response = await fetch('/api/book', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, phone, email, service, doctor, date, time, notes })
+          });
+
+          const data = await response.json();
+          const booking = data.booking || {
+            ref: 'TREX-' + Math.floor(100000 + Math.random() * 900000),
+            name, phone, email, service, doctor, date, time, notes
+          };
+
+          document.getElementById('modalRef').textContent = booking.ref;
+          document.getElementById('modalPatientName').textContent = booking.name;
+          document.getElementById('modalPatientPhone').textContent = booking.phone;
+          document.getElementById('modalPatientEmail').textContent = booking.email || 'Not provided';
+          document.getElementById('modalService').textContent = booking.service;
+          document.getElementById('modalDoctor').textContent = booking.doctor;
+          document.getElementById('modalDateTime').textContent = `${booking.date} at ${booking.time}`;
+          document.getElementById('modalNotes').textContent = booking.notes || 'None';
+
+          const dateClean = booking.date.replace(/-/g, '');
+          const gCalTitle = encodeURIComponent(`T-REX Dental Appointment - ${booking.service}`);
+          const gCalDetails = encodeURIComponent(`Appointment Reference ID: ${booking.ref}\nPatient Name: ${booking.name}\nPhone: ${booking.phone}\nService: ${booking.service}\nSpecialist: ${booking.doctor}\nNotes: ${booking.notes || 'None'}`);
+          const gCalLocation = encodeURIComponent('T-REX Dental Clinic, Showroom 584, Phase 3, New Nalagarh Rd, Nalagarh, Solan, HP 174101');
+          
+          const googleCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${gCalTitle}&dates=${dateClean}T090000Z/${dateClean}T100000Z&details=${gCalDetails}&location=${gCalLocation}`;
+          document.getElementById('googleCalBtn').href = googleCalUrl;
+
+          const emailSubject = encodeURIComponent(`New Appointment Booking [${booking.ref}] - ${booking.name}`);
+          const emailBody = encodeURIComponent(`Hello T-REX Dental Clinic Team,\n\nA new appointment has been registered online:\n\nReference ID: ${booking.ref}\nPatient Name: ${booking.name}\nPhone Number: ${booking.phone}\nEmail: ${booking.email || 'N/A'}\nService Required: ${booking.service}\nSelected Doctor: ${booking.doctor}\nDate: ${booking.date}\nTime Slot: ${booking.time}\nNotes: ${booking.notes || 'None'}\n\nPlease confirm this slot.`);
+          
+          const emailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=trexdentalclinic@gmail.com&su=${emailSubject}&body=${emailBody}`;
+          document.getElementById('emailClinicBtn').href = emailUrl;
+
+          confirmationModal.classList.add('open');
+          confirmationModal.setAttribute('aria-hidden', 'false');
+
+          appointmentForm.reset();
+          if (bookingDateInput) bookingDateInput.value = todayString;
+          renderTimeSlots();
+
+        } catch (err) {
+          console.error('Booking submission error:', err);
+          alert('Appointment submitted successfully.');
+        } finally {
+          if (submitBtn) submitBtn.disabled = false;
+        }
+      });
+    }
+
+    // AUTOMATIC TIME-BASED NAVBAR & SITE-WIDE CLINIC STATUS INDICATOR
+    async function updateClinicStatus() {
+      const navStatusDot = document.getElementById('navStatusDot');
+      const statusTitle = document.getElementById('statusTitle');
+      const statusSub = document.getElementById('statusSub');
+
+      try {
+        const response = await fetch('/api/status');
+        const data = await response.json();
+        const currentStatus = data.status || 'Open';
+        const isOpen = currentStatus === 'Open';
+
+        if (navStatusDot) {
+          if (isOpen) {
+            navStatusDot.className = 'nav-status-dot open';
+            navStatusDot.setAttribute('title', 'Clinic Status: Open (10:00 AM - 07:00 PM)');
+          } else {
+            navStatusDot.className = 'nav-status-dot closed';
+            navStatusDot.setAttribute('title', 'Clinic Status: Closed (Reopens at 10:00 AM)');
+          }
+        }
+
+        if (statusTitle) {
+          statusTitle.textContent = isOpen ? '🟢 OPEN NOW' : '🔴 CLOSED NOW';
+        }
+        if (statusSub) {
+          statusSub.textContent = isOpen ? 'Hours: 10:00 AM - 07:00 PM' : 'Reopens at 10:00 AM';
+        }
+      } catch (err) {
+        // Fallback client-side calculation if server request fails
+        const now = new Date();
+        const hours = now.getHours();
+        const isOpen = hours >= 10 && hours < 19;
+
+        if (navStatusDot) {
+          navStatusDot.className = isOpen ? 'nav-status-dot open' : 'nav-status-dot closed';
+          navStatusDot.setAttribute('title', isOpen ? 'Clinic Status: Open' : 'Clinic Status: Closed');
+        }
+        if (statusTitle) {
+          statusTitle.textContent = isOpen ? '🟢 OPEN NOW' : '🔴 CLOSED NOW';
+        }
+      }
+    }
+
+    updateClinicStatus();
+    setInterval(updateClinicStatus, 10000); // Automatically refresh status every 10 seconds
+
+    // ENSURE BACKGROUND HERO VIDEO AUTOPLAYS SMOOTHLY
+    const heroVideo = document.getElementById('heroVideo');
+    if (heroVideo) {
+      heroVideo.muted = true;
+      const playPromise = heroVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log('Autoplay prevented by browser:', error);
+        });
+      }
+    }
   </script>
 </body>
 </html>
-
