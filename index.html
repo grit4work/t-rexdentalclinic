@@ -66,89 +66,7 @@
       </div>
     </section>
 
-    <!-- ONLINE APPOINTMENT BOOKING -->
-    <section class="feature alt" id="booking">
-      <div class="container feature-inner">
-        <div class="section-card">
-          <p class="kicker">ONLINE REGISTRATION</p>
-          <h2 class="headline">Book an Appointment</h2>
-          <p>Select your required service, specialist, preferred date, and real-time time slot for a seamless dental visit.</p>
-
-          <form id="appointmentForm" class="booking-form">
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="patientName">Full Name *</label>
-                <input type="text" id="patientName" name="patientName" required placeholder="Enter full name" />
-              </div>
-
-              <div class="form-group">
-                <label for="patientPhone">Phone Number *</label>
-                <input type="tel" id="patientPhone" name="patientPhone" required placeholder="Enter 10-digit phone number" />
-              </div>
-
-              <div class="form-group">
-                <label for="patientEmail">Email Address</label>
-                <input type="email" id="patientEmail" name="patientEmail" placeholder="patient@example.com" />
-              </div>
-
-              <div class="form-group">
-                <label for="bookingService">Dental Service *</label>
-                <select id="bookingService" name="bookingService" required>
-                  <option value="" disabled selected>Select dental service</option>
-                  <option value="Consultation & General Checkup">Consultation & General Checkup</option>
-                  <option value="Root Canal Treatment (RCT)">Root Canal Treatment (RCT)</option>
-                  <option value="Crown and Bridge">Crown and Bridge</option>
-                  <option value="Dental Implant">Dental Implant</option>
-                  <option value="Braces & Orthodontics">Braces & Orthodontics</option>
-                  <option value="Invisible Aligners">Invisible Aligners</option>
-                  <option value="Scaling & Curettage (Cleaning)">Scaling & Curettage (Cleaning)</option>
-                  <option value="Tooth Coloured Filling">Tooth Coloured Filling</option>
-                  <option value="Painless Tooth Extraction">Painless Tooth Extraction</option>
-                  <option value="Wisdom Tooth Extraction">Wisdom Tooth Extraction</option>
-                  <option value="Complete Denture">Complete Denture</option>
-                  <option value="Veneers">Veneers</option>
-                  <option value="Teeth Bleaching / Whitening">Teeth Bleaching / Whitening</option>
-                  <option value="Dental X-Ray">Dental X-Ray</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="bookingDoctor">Preferred Specialist / Doctor *</label>
-                <select id="bookingDoctor" name="bookingDoctor" required>
-                  <option value="Dr. Narinderjeet Singh (Managing Director - BDS)">Dr. Narinderjeet Singh (Managing Director - BDS)</option>
-                  <option value="Dr. Ritika Sharda (Prosthodontics - BDS, MDS)">Dr. Ritika Sharda (Prosthodontics - BDS, MDS)</option>
-                  <option value="Dr. Pallavi Vishavkarma (Orthodontics - BDS, MDS)">Dr. Pallavi Vishavkarma (Orthodontics - BDS, MDS)</option>
-                  <option value="Dr. Vikrant Thakur (Prosthodontics & Implantology - BDS, MDS)">Dr. Vikrant Thakur (Prosthodontics & Implantology - BDS, MDS)</option>
-                  <option value="First Available Specialist">First Available Specialist</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="bookingDate">Preferred Date *</label>
-                <input type="date" id="bookingDate" name="bookingDate" required />
-              </div>
-            </div>
-
-            <div class="form-group margin-top">
-              <label>Select Real-time Time Slot *</label>
-              <div class="time-slots-grid" id="timeSlotsGrid">
-                <!-- Dynamically rendered slots -->
-              </div>
-              <input type="hidden" id="selectedTimeSlot" name="selectedTimeSlot" required />
-            </div>
-
-            <div class="form-group margin-top">
-              <label for="bookingNotes">Additional Notes / Symptoms (Optional)</label>
-              <textarea id="bookingNotes" name="bookingNotes" rows="3" placeholder="Specify any current symptoms, dental concerns, or allergies..."></textarea>
-            </div>
-
-            <div class="booking-action-bar">
-              <button type="submit" class="btn primary-btn submit-booking-btn" id="submitBookingBtn">Confirm Appointment</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
+  
 
     <!-- SERVICES -->
     <section class="feature" id="services">
@@ -655,6 +573,90 @@
             </div>
 
           </div>
+        </div>
+      </div>
+    </section>
+
+      <!-- ONLINE APPOINTMENT BOOKING -->
+    <section class="feature alt" id="booking">
+      <div class="container feature-inner">
+        <div class="section-card">
+          <p class="kicker">ONLINE REGISTRATION</p>
+          <h2 class="headline">Book an Appointment</h2>
+          <p>Select your required service, specialist, preferred date, and real-time time slot for a seamless dental visit.</p>
+
+          <form id="appointmentForm" class="booking-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="patientName">Full Name *</label>
+                <input type="text" id="patientName" name="patientName" required placeholder="Enter full name" />
+              </div>
+
+              <div class="form-group">
+                <label for="patientPhone">Phone Number *</label>
+                <input type="tel" id="patientPhone" name="patientPhone" required placeholder="Enter 10-digit phone number" />
+              </div>
+
+              <div class="form-group">
+                <label for="patientEmail">Email Address</label>
+                <input type="email" id="patientEmail" name="patientEmail" placeholder="patient@example.com" />
+              </div>
+
+              <div class="form-group">
+                <label for="bookingService">Dental Service *</label>
+                <select id="bookingService" name="bookingService" required>
+                  <option value="" disabled selected>Select dental service</option>
+                  <option value="Consultation & General Checkup">Consultation & General Checkup</option>
+                  <option value="Root Canal Treatment (RCT)">Root Canal Treatment (RCT)</option>
+                  <option value="Crown and Bridge">Crown and Bridge</option>
+                  <option value="Dental Implant">Dental Implant</option>
+                  <option value="Braces & Orthodontics">Braces & Orthodontics</option>
+                  <option value="Invisible Aligners">Invisible Aligners</option>
+                  <option value="Scaling & Curettage (Cleaning)">Scaling & Curettage (Cleaning)</option>
+                  <option value="Tooth Coloured Filling">Tooth Coloured Filling</option>
+                  <option value="Painless Tooth Extraction">Painless Tooth Extraction</option>
+                  <option value="Wisdom Tooth Extraction">Wisdom Tooth Extraction</option>
+                  <option value="Complete Denture">Complete Denture</option>
+                  <option value="Veneers">Veneers</option>
+                  <option value="Teeth Bleaching / Whitening">Teeth Bleaching / Whitening</option>
+                  <option value="Dental X-Ray">Dental X-Ray</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="bookingDoctor">Preferred Specialist / Doctor *</label>
+                <select id="bookingDoctor" name="bookingDoctor" required>
+                  <option value="Dr. Narinderjeet Singh (Managing Director - BDS)">Dr. Narinderjeet Singh (Managing Director - BDS)</option>
+                  <option value="Dr. Ritika Sharda (Prosthodontics - BDS, MDS)">Dr. Ritika Sharda (Prosthodontics - BDS, MDS)</option>
+                  <option value="Dr. Pallavi Vishavkarma (Orthodontics - BDS, MDS)">Dr. Pallavi Vishavkarma (Orthodontics - BDS, MDS)</option>
+                  <option value="Dr. Vikrant Thakur (Prosthodontics & Implantology - BDS, MDS)">Dr. Vikrant Thakur (Prosthodontics & Implantology - BDS, MDS)</option>
+                  <option value="First Available Specialist">First Available Specialist</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="bookingDate">Preferred Date *</label>
+                <input type="date" id="bookingDate" name="bookingDate" required />
+              </div>
+            </div>
+
+            <div class="form-group margin-top">
+              <label>Select Real-time Time Slot *</label>
+              <div class="time-slots-grid" id="timeSlotsGrid">
+                <!-- Dynamically rendered slots -->
+              </div>
+              <input type="hidden" id="selectedTimeSlot" name="selectedTimeSlot" required />
+            </div>
+
+            <div class="form-group margin-top">
+              <label for="bookingNotes">Additional Notes / Symptoms (Optional)</label>
+              <textarea id="bookingNotes" name="bookingNotes" rows="3" placeholder="Specify any current symptoms, dental concerns, or allergies..."></textarea>
+            </div>
+
+            <div class="booking-action-bar">
+              <button type="submit" class="btn primary-btn submit-booking-btn" id="submitBookingBtn">Confirm Appointment</button>
+            </div>
+          </form>
         </div>
       </div>
     </section>
